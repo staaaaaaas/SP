@@ -1,0 +1,15 @@
+(define VARIANT 1)
+(define LAST-DIGIT-OF-GROUP-NUMBER 6)
+(define LARGEST-COIN 50)
+
+(define (implication? x? y?)
+  )
+  
+(define (cc amount LARGEST-COIN)
+  )
+
+(define (count-change amount)
+  (cc amount LARGEST-COIN)
+ )
+(define (next-coin coin)
+  (if
