@@ -1,0 +1,69 @@
+;coin19
+(define VARIANT 1)
+(define LAST-DIGIT-OF-GROUP-NUMBER 6)
+(define LARGEST-COIN 50)
+
+;(define (implication? x? y?)
+ ; (= 1
+  ;   (cond((not x?)  1)
+   ;       (y? 1)
+    ;      (else 0)
+     ;  )
+  ;)
+;)
+              
+(define (cc amount largest-coin)
+  (if ( = amount 0)
+     (if (= largest-coin 1)
+        1 
+        (if (not(= largest-coin 0))
+           (+ (cc amount  (next-coin largest-coin))
+               (cc (- amount largest-coin) largest-coin))
+           0
+           )
+        )
+     (if (< 0 amount)
+        (if (not(= largest-coin 0))
+           (+ (cc amount  (next-coin largest-coin))
+               (cc (- amount largest-coin) largest-coin))
+           0
+           )
+0)))
+
+(define (count-change amount)
+  (cc amount LARGEST-COIN)
+ )
+
+(define (next-coin coin)
+  (if (= coin 50)
+	  15
+	  (if (= coin 15)
+		  10
+		  (if (= coin 10)
+			  2
+			  (if (= coin 2)
+				  1
+                                       0)))))
+
+
+(define (GR-AMOUNT)
+  (remainder (+(* 100 LAST-DIGIT-OF-GROUP-NUMBER) VARIANT) 137)
+ )
+
+(display " aso variant")
+(display VARIANT) (newline)
+(display " 1-2-10-15-50") (newline)
+(display "count-change for 100 \t= ")
+(display (count-change 100 )) (newline)
+(display "count-change for ")
+(display (GR-AMOUNT))
+(display " \t= ")
+(display(count-change (GR-AMOUNT))) (newline)
+
+
+
+
+  
+   
+           
+    
